@@ -295,8 +295,37 @@ header .wrapper {
 	margin-top: 7rem;
 }
 
-.footer {
-	margin-top: 4.5rem;
+footer {
+	margin-block: 4.5rem;
+	outline: 1px solid rosybrown;
+}
+
+footer .wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3.5rem;
+	outline: 1px solid tomato;
+}
+
+.links-container {
+	margin-block: unset;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.75rem;
+}
+
+.links-container li {
+	display: flex;
+	cursor: pointer;
+}
+
+.links-container li svg:hover {
+	color: var(--clr-primary-800);
+}
+
+@media (min-width: 40em) {
 }
 
 /* Buttons */
@@ -306,27 +335,35 @@ header .wrapper {
 	display: inline-block;
 }
 
-.btn[data-primary] {
+.btn-primary {
+	font-weight: 700;
+	font-size: 1rem;
 	background-color: var(--clr-accent-400);
 	border: 2px solid var(--clr-accent-400);
 	color: var(--clr-primary-800);
 	padding: 0.75rem 1.5rem;
 }
 
-.btn[data-primary]:hover,
-.btn[data-primary]:focus {
+.btn-primary:hover,
+.btn-primary:focus {
 	background-color: var(--clr-primary-800);
 	color: var(--clr-accent-400);
 }
 
-.btn[data-secondary] {
+.btn-secondary {
 	border-bottom: 2px solid var(--clr-accent-400);
 	color: var(--clr-primary-100);
 }
 
-.btn[data-secondary]:hover,
-.btn[data-secondary]:focus {
+.btn-secondary:hover,
+.btn-secondary:focus {
 	color: var(--clr-accent-400);
+}
+
+@media (min-width: 40em) {
+	.btn-primary {
+		font-size: 1.125rem;
+	}
 }
 
 /* Utility */
@@ -336,3 +373,4 @@ header .wrapper {
 	text-decoration-color: var(--clr-accent-400);
 	text-decoration-thickness: 0.05em;
 }
+
