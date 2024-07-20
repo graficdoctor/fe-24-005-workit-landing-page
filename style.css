@@ -288,6 +288,12 @@ header {
 	bottom: -20%;
 }
 
+.header-bg-pattern-left,
+.header-bg-pattern-right,
+.cta-bg-pattern {
+	display: none;
+}
+
 @media (min-width: 30em) {
 	.main-img {
 		min-width: 350px;
@@ -295,17 +301,33 @@ header {
 }
 
 @media (min-width: 40em) {
-	header {
-		height: 540px;
-	}
-
 	.hero {
-		padding-top: 3.5rem;
-	}
+    padding-top: 3.5rem;
+    height: 540px;
+    overflow: hidden;
+  }
 
 	.main-img {
 		min-width: 480px;
-		bottom: -30%;
+		bottom: -45%;
+	}
+
+	.header-bg-pattern-left,
+	.header-bg-pattern-right,
+	.cta-bg-pattern {
+		display: block;
+	}
+
+	.header-bg-pattern-left {
+		position: absolute;
+		top: 45px;
+		left: -230px;
+	}
+
+	.header-bg-pattern-right {
+		position: absolute;
+		top: 250px;
+		right: -70px;
 	}
 }
 
@@ -318,6 +340,15 @@ header {
 	.main-img {
 		min-width: 770px;
 		bottom: -25%;
+	}
+
+	.header-bg-pattern-left {
+		top: 116px;
+		left: -150px;
+	}
+
+	.header-bg-pattern-right {
+		top: 300px;
 	}
 }
 
@@ -424,6 +455,7 @@ header {
 		display: grid;
 		gap: 0;
 		grid-template-columns: 180px minmax(375px, 1fr);
+		position: relative;
 	}
 
 	.cta-text {
@@ -434,15 +466,26 @@ header {
 	.cta-text .btn-primary {
 		max-width: max-content;
 	}
+
+	.cta-bg-pattern {
+		position: absolute;
+		right: 0;
+		bottom: -75px;
+		z-index: 25;
+	}
 }
 
-@media (min-width: 50em) {
+@media (min-width: 62.5em) {
 	.cta .wrapper {
 		grid-template-columns: minmax(281px, 380px) minmax(375px, 1fr);
 	}
 
 	.cta-img {
 		max-width: 477px;
+	}
+
+	.cta-bg-pattern {
+		right: 100px;
 	}
 }
 
