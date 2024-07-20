@@ -73,9 +73,9 @@ dd {
 	margin: 0;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+/* Remove list styles on ul, ol elements which suggests default styling will be removed */
+ul,
+ol {
 	list-style: none;
 }
 
@@ -260,6 +260,10 @@ ul {
 	font-size: var(--fs-200);
 }
 
+.ff-serif {
+	font-family: var(--ff-serif);
+}
+
 /* ----------------  */
 /* Components        */
 /* ----------------  */
@@ -302,10 +306,10 @@ header {
 
 @media (min-width: 40em) {
 	.hero {
-    padding-top: 3.5rem;
-    height: 540px;
-    overflow: hidden;
-  }
+		padding-top: 3.5rem;
+		height: 540px;
+		overflow: hidden;
+	}
 
 	.main-img {
 		min-width: 480px;
