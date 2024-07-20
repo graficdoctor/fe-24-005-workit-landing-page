@@ -19,24 +19,20 @@
 	--fw-500: 500;
 	--fw-400: 400;
 
-	--fs-900: clamp(3.13rem, 3.31vw + 2.35rem, 5rem);
-	--fs-800: clamp(2rem, 2.65vw + 1.38rem, 3.5rem);
-	--fs-700: clamp(1.75rem, 0.44vw + 1.65rem, 2rem);
-	--fs-600: ;
-	--fs-500: ;
+	--fs-900: 3rem;
+	--fs-800: 2rem;
+	--fs-700: 1.75rem;
 	--fs-400: 1rem;
-	--fs-300: ;
-	--fs-200: ;
 
 	--transition: all 0.5s ease;
 }
 
 @media (min-width: 40em) {
 	:root {
-		--fs-800: 5rem;
-		--fs-700: 2.5rem;
+		--fs-900: 5rem;
+		--fs-800: 3.5rem;
+		--fs-700: 2rem;
 		--fs-600: 1.5rem;
-		--fs-500: 1.25rem;
 		--fs-400: 1.125rem;
 	}
 }
@@ -156,8 +152,7 @@ body {
 
 .wrapper {
 	margin-inline: auto;
-	padding-inline: 1rem;
-	width: min(100vw, 69rem);
+	width: min(calc(100vw - 2rem), 69rem);
 }
 
 main {
@@ -179,19 +174,10 @@ h3 {
 }
 
 h1 {
-	font-size: var(--fs-900);
 	color: hsl(var(--clr-primary-100));
 	text-align: center;
 	max-width: 40rem;
 	margin-bottom: 2rem;
-}
-
-h2 {
-	font-size: var(--fs-800);
-}
-
-h3 {
-	font-size: var(--fs-700);
 }
 
 a {
@@ -200,6 +186,7 @@ a {
 
 ul {
 	padding: 0;
+	margin: 0;
 }
 
 /* -----------------  */
@@ -293,12 +280,18 @@ header {
 .main-img {
 	position: absolute;
 	z-index: 10;
-	min-width: 250px;
-	max-width: 480px;
+	width: 250px;
+	max-width: 300px;
 	object-fit: cover;
 	right: 50%;
 	transform: translateX(50%);
-	bottom: -35%;
+	bottom: -20%;
+}
+
+@media (min-width: 30em) {
+	.main-img {
+		min-width: 350px;
+	}
 }
 
 @media (min-width: 40em) {
@@ -309,6 +302,11 @@ header {
 	.hero {
 		padding-top: 3.5rem;
 	}
+
+	.main-img {
+		min-width: 480px;
+		bottom: -30%;
+	}
 }
 
 @media (min-width: 60em) {
@@ -318,8 +316,8 @@ header {
 	}
 
 	.main-img {
-		max-width: 700px;
-		bottom: -40%;
+		min-width: 770px;
+		bottom: -25%;
 	}
 }
 
@@ -331,15 +329,8 @@ header {
 	margin-bottom: 3rem;
 }
 
-.bullets::after {
-	background-color: hsl(var(--clr-primary-200));
-}
-
 .bullet-list {
-	margin: 0;
-	align-self: center;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 	gap: 2.5rem;
 }
 
@@ -366,20 +357,20 @@ header {
 		padding-block: 12rem 6rem;
 	}
 
+	.bullet-list {
+		gap: 1.6rem;
+		margin: 0 auto;
+	}
+}
+
+@media (min-width: 40em) and (max-width: 50em) {
 	.bullets .wrapper {
 		padding-inline: 6rem;
 	}
 
 	.bullet-list {
-		gap: 2.5rem;
-		margin: 0 auto;
 		text-align: left;
-	}
-}
-
-@media (min-width: 40em) and (max-width: 50em) {
-	.bullet-list {
-		grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+		grid-template-columns: 1fr;
 	}
 
 	.bullet-item {
@@ -394,15 +385,19 @@ header {
 	.bullets {
 		padding-bottom: 10.75rem;
 	}
+
+	.bullet-list {
+		grid-template-columns: repeat(auto-fit, minmax(354px, 1fr));
+	}
+}
+
+@media (min-width: 71em) {
+	.bullet-list {
+		grid-template-columns: repeat(3, minmax(354px, 1fr));
+	}
 }
 
 .cta {
-	/* outline: 1px solid hotpink; */
-	/* display: flex; */
-	/* flex-direction: column-reverse; */
-	/* align-items: center; */
-	/* padding-top: clamp(7rem, 30vw, 22rem); */
-	/* padding-bottom: clamp(5rem, 20vw, 7rem); */
 	padding-block: 6rem 4rem;
 }
 
@@ -425,18 +420,10 @@ header {
 }
 
 @media (min-width: 40em) {
-	.cta-img {
-		margin-right: auto;
-		align-self: left;
-		margin-right: calc(90vw - 281px);
-	}
-
-	/* Op te lossen: image zit niet in de grid? */
-
 	.cta .wrapper {
 		display: grid;
 		gap: 0;
-		grid-template-columns: minmax(175px, 380px) minmax(375px, 1fr);
+		grid-template-columns: 180px minmax(375px, 1fr);
 	}
 
 	.cta-text {
@@ -445,35 +432,21 @@ header {
 	}
 
 	.cta-text .btn-primary {
-		/* display: inline; */
 		max-width: max-content;
 	}
 }
 
-/* @media (min-width: 40em) {
-	.cta {
-		flex-direction: column;
-	}
-
-	.cta {
-		top: 0;
-		left: 0;
-		translate: 0 -50%;
-	}
-
+@media (min-width: 50em) {
 	.cta .wrapper {
-		align-self: flex-end;
-		max-width: clamp(32.125rem, 70vw, 69.5rem);
+		grid-template-columns: minmax(281px, 380px) minmax(375px, 1fr);
 	}
 
-	.cta-text {
-		text-align: left;
+	.cta-img {
+		max-width: 477px;
 	}
+}
 
-	.cta-text .btn-primary {
-		align-self: start;
-	}
-} */
+/* Footer */
 
 footer {
 	margin-bottom: 4rem;
@@ -492,8 +465,16 @@ footer .wrapper {
 	cursor: pointer;
 }
 
-a:hover svg {
-	stroke: hsl(var(--clr-primary-800));
+.social-icon {
+	width: auto;
+	height: 20px;
+	fill: hsl(var(--clr-primary-700));
+	transition: var(--transition);
+}
+
+a:hover .social-icon {
+	fill: hsl(var(--clr-primary-800));
+	transform: scale(1.1);
 }
 
 /* Buttons */
@@ -501,15 +482,15 @@ a:hover svg {
 	cursor: pointer;
 	transition: all ease-in 0.3s;
 	display: inline-block;
+	font-size: var(--fs-400);
+	font-weight: var(--fw-700);
+	padding: 0.75rem 1.5rem;
 }
 
 .btn-primary {
-	font-size: var(--fs-400);
-	font-weight: var(--fw-700);
 	background-color: hsl(var(--clr-accent-400));
 	border: 2px solid hsl(var(--clr-accent-400));
 	color: hsl(var(--clr-primary-800));
-	padding: 0.75rem 1.5rem;
 }
 
 .btn-primary:hover,
@@ -519,6 +500,7 @@ a:hover svg {
 }
 
 .btn-secondary {
+	padding-inline: 0;
 	border-bottom: 2px solid hsl(var(--clr-accent-400));
 	color: hsl(var(--clr-primary-100));
 }
